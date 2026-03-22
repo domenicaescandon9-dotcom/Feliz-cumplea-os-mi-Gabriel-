@@ -15,10 +15,11 @@ font-family:'Poppins',sans-serif;
 background: linear-gradient(135deg, #ffd6e0, #cce7ff);
 color:#333;
 text-align:center;
-overflow:hidden;
+height:100vh;
+overflow:hidden; /* 🔒 evita que todo se baje */
 }
 
-/* pantallas completas */
+/* pantallas */
 .screen{
 display:none;
 position:absolute;
@@ -28,6 +29,7 @@ top:0;
 left:0;
 padding:40px;
 box-sizing:border-box;
+overflow-y:auto; /* ✅ scroll SOLO aquí */
 }
 
 .active{
@@ -43,7 +45,6 @@ from{opacity:0; transform:scale(0.95)}
 to{opacity:1; transform:scale(1)}
 }
 
-/* INICIO */
 #start{
 height:100vh;
 }
@@ -57,7 +58,18 @@ h2{
 font-family:'Great Vibes',cursive;
 }
 
-/* BOTONES */
+/* texto más bonito */
+p{
+max-width:600px;
+margin:auto;
+line-height:1.6;
+}
+
+li{
+line-height:1.6;
+}
+
+/* botones */
 button{
 background:#A7C7E7;
 border:none;
@@ -73,7 +85,7 @@ button:hover{
 transform:scale(1.08);
 }
 
-/* MENÚ */
+/* menú */
 .menu{
 display:flex;
 flex-wrap:wrap;
@@ -98,24 +110,20 @@ color:#000;
 transform:scale(1.05);
 }
 
-/* LISTA */
 ul{
 max-width:600px;
 margin:auto;
 text-align:left
 }
 
-/* canciones */
 .song{margin:10px 0}
 
-/* galería */
 .gallery img{
 width:200px;
 margin:10px;
 border-radius:10px
 }
 
-/* pastel */
 .cake{
 font-size:110px;
 animation:float 3s infinite ease-in-out
@@ -127,7 +135,6 @@ animation:float 3s infinite ease-in-out
 100%{transform:translateY(0)}
 }
 
-/* confeti */
 .confetti{
 position:fixed;
 width:10px;
@@ -140,7 +147,10 @@ animation:fall 3s linear forwards
 to{transform:translateY(100vh) rotate(720deg)}
 }
 
-.back{margin-top:30px}
+.back{
+margin-top:30px;
+margin-bottom:40px;
+}
 
 </style>
 </head>
