@@ -2,132 +2,318 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Feliz cumpleaños Gabriel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Cumpleaños Gabriel</title>
 
 <style>
-body {
-  margin: 0;
-  background: #2f3e55;
-  color: white;
-  font-family: 'Segoe UI', sans-serif;
-  overflow: hidden;
+body{
+margin:0;
+font-family: 'Segoe UI', sans-serif;
+background:#2A2A2A;
+color:#F5F5F5;
+text-align:center;
 }
 
-/* estrellas */
-.stars {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: url('https://i.imgur.com/8Km9tLL.png');
-  animation: moveStars 60s linear infinite;
-  opacity: 0.4;
+.screen{display:none;padding:40px}
+.active{display:block}
+
+/* INICIO centrado bonito */
+#start{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+height:100vh;
 }
 
-@keyframes moveStars {
-  from {background-position: 0 0;}
-  to {background-position: 1000px 1000px;}
+h1{font-size:2.8em;margin-bottom:10px;font-family:cursive}
+
+button{
+background:#A7C7E7;
+border:none;
+padding:12px 22px;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+margin-top:20px;
 }
 
-/* título */
-.title {
-  text-align: center;
-  font-size: 3em;
-  margin-top: 40px;
-  font-family: cursive;
+button:hover{transform:scale(1.05)}
+
+.menu{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+justify-content:center;
+margin-top:30px
 }
 
-/* pastel */
-.cake {
-  width: 200px;
-  margin: 40px auto;
-  position: relative;
+.card{
+background:#3a3a3a;
+padding:20px;
+border-radius:12px;
+width:220px;
+cursor:pointer;
+transition:0.3s
 }
 
-.layer {
-  background: #1f2a44;
-  height: 50px;
-  border-radius: 10px;
-  margin-top: 10px;
-  box-shadow: 0 0 15px rgba(255,255,255,0.1);
+.card:hover{
+background:#A7C7E7;
+color:#000
 }
 
-.candle {
-  width: 10px;
-  height: 30px;
-  background: white;
-  margin: auto;
-  position: relative;
+ul{
+max-width:600px;
+margin:auto;
+text-align:left
 }
 
-.flame {
-  width: 10px;
-  height: 10px;
-  background: gold;
-  border-radius: 50%;
-  position: absolute;
-  top: -10px;
-  left: 0;
-  animation: flicker 0.5s infinite alternate;
+.song{margin:10px 0}
+
+.gallery img{
+width:200px;
+margin:10px;
+border-radius:10px
 }
 
-@keyframes flicker {
-  from {transform: scale(1);}
-  to {transform: scale(1.2);}
+/* pastel bonito */
+.cake{
+font-size:100px;
+animation:float 3s infinite ease-in-out
 }
 
-/* texto */
-.message {
-  text-align: center;
-  max-width: 500px;
-  margin: auto;
-  font-style: italic;
-  opacity: 0.9;
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+100%{transform:translateY(0)}
 }
 
-/* botón */
-.button {
-  position: absolute;
-  bottom: 30px;
-  right: 30px;
-  background: #a7c7e7;
-  color: black;
-  padding: 12px 20px;
-  border-radius: 15px;
-  cursor: pointer;
-  transition: 0.3s;
+/* confeti */
+.confetti{
+position:fixed;
+width:10px;
+height:10px;
+background:pink;
+top:-10px;
+animation:fall 3s linear forwards
 }
 
-.button:hover {
-  transform: scale(1.1);
+@keyframes fall{
+to{transform:translateY(100vh) rotate(720deg)}
 }
+
+.back{margin-top:30px}
 </style>
+
 </head>
 
 <body>
 
-<div class="stars"></div>
+<!-- 🎂 INICIO (ARREGLADO) -->
+<div id="start" class="screen active">
 
-<div class="title">Feliz cumpleaños Gabriel</div>
+<h1>Feliz cumpleaños Gabriel</h1>
 
-<div class="cake">
-  <div class="candle">
-    <div class="flame"></div>
-  </div>
-  <div class="layer"></div>
-  <div class="layer"></div>
-  <div class="layer"></div>
-</div>
+<div class="cake">🎂</div>
 
-<div class="message">
+<p style="max-width:500px;">
 Hoy es tu día, te deseo todo lo mejor porque te lo mereces,
-esto no es mucho pero créeme que lo hago con todo mi cariño.
+esto no es mucho pero créeme que lo hago con todo mi cariño.<br><br>
 Te quiero demasiado.<br><br>
-Feliz cumpleaños mi niño Gabriel 💗
+<b>Feliz cumpleaños mi niño Gabriel 💗</b>
+</p>
+
+<button onclick="startPage()">Comenzar</button>
+
 </div>
 
-<div class="button" onclick="alert('Aquí irá el menú')">
-Comenzar
+<!-- 📬 MENÚ -->
+<div id="menu" class="screen">
+<h2>Hay algunas cosas que quiero mostrarte hoy…</h2>
+
+<div class="menu">
+<div class="card" onclick="openSection('likes')">⭐ Cosas que me gustan de ti</div>
+<div class="card" onclick="openSection('songs')">🎵 Canciones que te dedico</div>
+<div class="card" onclick="openSection('drawings')">🎨 Dibujos para ti</div>
+<div class="card" onclick="openSection('letter')">💌 Carta especial</div>
+<div class="card" onclick="openSection('remember')">⭐ Cosa que no debes olvidar</div>
+<div class="card" onclick="openSection('thanks')">🎁 Sorpresa</div>
 </div>
+</div>
+
+<!-- 💗 GUSTOS -->
+<div id="likes" class="screen">
+<h2>Cosas que me gustan de ti 💗</h2>
+
+<p>Sin duda cada pequeña cosa de tu ser me gusta, me gustan simplemente porque se tratan de ti y tú eres lo más importante de mi vida.</p>
+
+<ul>
+<li>Me gusta tu carita</li>
+<li>Me gustan tus ojos</li>
+<li>Me gusta tu boca</li>
+<li>Me encanta tu hermosa sonrisa</li>
+<li>Me gusta tu nariz</li>
+<li>Me gustan los lunares de tu carita</li>
+<li>Me gustan los hoyuelos cuando sonríes</li>
+<li>Me gustan tus celos</li>
+<li>Me gusta tu linda forma de ser</li>
+<li>Me gusta lo hermoso de tu ser</li>
+<li>Me gusta que tienes un lindo corazón</li>
+<li>Me gusta que eres gracioso</li>
+<li>Me gusta tu lindo cabello</li>
+<li>Me gustan tus cejas</li>
+<li>Me gustan tus manos</li>
+<li>Me gusta tu personalidad</li>
+<li>Me gusta que tienes buenos gustos musicales</li>
+<li>Me gusta que cantes</li>
+<li>Me gusta tu voz</li>
+<li>Me gusta lo feliz que me haces</li>
+<li>Me gusta que eres una increíble persona</li>
+<li>Me gusta lo fuerte que eres</li>
+<li>Me gusta lo cariñoso que eras</li>
+<li>Me gusta cómo te ríes</li>
+<li>Me gustas</li>
+<li>Me gusta lo bonito que es tu cuerpo</li>
+<li>Me gusta absolutamente todo de ti</li>
+</ul>
+
+<button class="back" onclick="goMenu()">Volver al menú</button>
+</div>
+
+<!-- 🎵 CANCIONES -->
+<div id="songs" class="screen">
+<h2>Canciones que te dedico 🎵</h2>
+
+<div class="song">Until I Found You</div>
+<div class="song">Perfect</div>
+<div class="song">Earned It</div>
+<div class="song">All I Need</div>
+<div class="song">I Wanna Be Yours</div>
+<div class="song">Virgen</div>
+
+<button class="back" onclick="goMenu()">Volver al menú</button>
+</div>
+
+<!-- 🎨 DIBUJOS -->
+<div id="drawings" class="screen">
+<h2>Dibujos para ti 🎨</h2>
+
+<p>Aquí irán los dibujos que hice para ti 💙</p>
+
+<div class="gallery"></div>
+
+<button class="back" onclick="goMenu()">Volver al menú</button>
+</div>
+
+<!-- 💌 CARTA -->
+<div id="letter" class="screen">
+<h2>Carta especial 💌</h2>
+<p id="letterText"></p>
+
+<button class="back" onclick="goMenu()">Volver al menú</button>
+</div>
+
+<!-- ⭐ RECORDAR -->
+<div id="remember" class="screen">
+<h2>Algo que no debes olvidar ⭐</h2>
+
+<p>
+Gabriel,<br><br>
+Quiero que nunca olvides algo muy importante: eres una persona increíble.<br><br>
+Nunca dudes de tu valor ni de lo especial que eres.<br><br>
+Y sobre todo, no olvides nunca lo valioso que eres.
+</p>
+
+<button class="back" onclick="goMenu()">Volver al menú</button>
+</div>
+
+<!-- 🎁 SORPRESA -->
+<div id="thanks" class="screen">
+<h2>Gracias Gabriel 💗</h2>
+
+<p>
+Gracias por existir y por todos los momentos que me regalaste.<br><br>
+Este pequeño regalo lo hice pensando en ti.
+</p>
+
+<button class="back" onclick="goMenu()">Volver al menú</button>
+</div>
+
+<script>
+function startPage(){
+createConfetti();
+document.getElementById('start').classList.remove('active');
+document.getElementById('menu').classList.add('active');
+}
+
+function openSection(id){
+document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+if(id==='letter') typeLetter();
+}
+
+function goMenu(){
+document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+document.getElementById('menu').classList.add('active');
+}
+
+function createConfetti(){
+for(let i=0;i<80;i++){
+let conf=document.createElement('div');
+conf.className='confetti';
+conf.style.left=Math.random()*100+'vw';
+conf.style.background=['#A7C7E7','pink','#ffffff'][Math.floor(Math.random()*3)];
+conf.style.animationDuration=(Math.random()*2+2)+'s';
+document.body.appendChild(conf);
+setTimeout(()=>conf.remove(),3000);
+}
+}
+
+const carta=`Gabriel,
+
+Hoy es tu cumpleaños, y aunque tal vez este no sea el regalo más grande del mundo, sí es uno que hice con mucho cariño, pensando en ti.
+
+A veces es difícil poner en palabras lo que una persona significa para nosotros, pero contigo siempre ha sido especial. Desde que llegaste a mi vida te convertiste en alguien muy importante, de hecho la persona más importante en mi vida, alguien con quien compartí momentos que siempre voy a recordar.
+
+Contigo aprendí que las personas pueden dejar huellas muy bonitas en el corazón. Porque no solo fuiste alguien con quien compartí cosas, también fuiste alguien que me hizo reír, que me acompañó en momentos importantes y que me mostró una parte muy bonita de su forma de ser.
+
+Hay muchas cosas de ti que admiro: tu forma de ser y lo fuerte que eres incluso cuando las cosas no están bien. A veces tal vez no lo veas, pero de verdad eres una persona increíble.
+
+Tal vez las cosas cambiaron con el tiempo, pero hay algo que no cambia: el cariño que te tengo y lo importante que eres para mí como persona. Porque más allá de todo, sigues siendo alguien muy especial en mi vida y también eres mi mejor amigo.
+
+Por eso hoy solo quiero desearte algo muy simple pero muy sincero: que seas feliz. Que en tu vida pasen cosas buenas, momentos que te hagan sonreír y sueños que puedas cumplir.
+
+Y que nunca olvides lo valioso que eres.
+
+Feliz cumpleaños, Gabriel.
+
+Con mucho cariño,
+💗 Carolina`;
+
+let escribiendo=false;
+
+function typeLetter(){
+if(escribiendo) return;
+escribiendo=true;
+
+let i=0;
+let speed=35;
+let target=document.getElementById("letterText");
+target.innerHTML="";
+
+function escribir(){
+if(i<carta.length){
+let char=carta.charAt(i);
+if(char==="\n") target.innerHTML+="<br>";
+else target.innerHTML+=char;
+i++;
+setTimeout(escribir,speed);
+}
+}
+
+escribir();
+}
+</script>
 
 </body>
 </html>
