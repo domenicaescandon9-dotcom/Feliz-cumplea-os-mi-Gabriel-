@@ -284,9 +284,13 @@ Este pequeño regalo lo hice pensando en ti.
 
 function startPage(){
 createConfetti();
+
+// 🔥 ESTA ES LA LÍNEA QUE FALTA
+document.getElementById('start').style.display = 'none';
+
 document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
 document.getElementById('menu').classList.add('active');
-}
+                          }
 
 function openSection(id){
 document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
