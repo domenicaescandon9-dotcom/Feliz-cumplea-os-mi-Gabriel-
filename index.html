@@ -286,12 +286,28 @@ Siempre voy a estar para ti, sin importar nada 💗
 
 <!-- SORPRESA -->
 <div id="thanks" class="screen">
-<h2>Gracias Gabriel 💗</h2>
+<h2>Para ti 💗</h2>
 
 <p>
-Gracias por existir y por todos los momentos que me regalaste.<br><br>
-Este pequeño regalo lo hice pensando en ti.
+Hay algo más que quiero decirte… 🥺
 </p>
+
+<button onclick="showFinal()">Tocar aquí</button>
+
+<div id="finalMessage" style="display:none; margin-top:30px;">
+<p>
+💗<br><br>
+
+Gracias por existir y por todos los momentos que me regalaste.<br><br>
+
+Este pequeño regalo lo hice pensando en ti, con mucho cariño…<br><br>
+
+Y aunque tal vez no sea perfecto, todo lo que hay aquí es sincero.<br><br>
+
+Feliz cumpleaños, Gabriel.<br>
+Siempre vas a ser alguien muy importante para mí 💗
+</p>
+</div>
 
 <button class="back" onclick="goMenu()">Volver al menú</button>
 </div>
@@ -375,7 +391,10 @@ setTimeout(escribir,speed);
 
 escribir();
 }
-
+function showFinal(){
+createConfetti();
+document.getElementById('finalMessage').style.display='block';
+}
 </script>
 
 </body>
