@@ -146,7 +146,20 @@ to{transform:translateY(100vh) rotate(720deg)}
 margin-top:30px;
 margin-bottom:40px;
 }
+/* 💗 corazón latiendo */
+.heart{
+font-size:28px;
+display:inline-block;
+animation:beat 1.5s infinite ease-in-out;
+}
 
+@keyframes beat{
+0%{transform:scale(1)}
+25%{transform:scale(1.12)}
+50%{transform:scale(1)}
+75%{transform:scale(1.12)}
+100%{transform:scale(1)}
+  }
 </style>
 </head>
 
@@ -286,7 +299,7 @@ Siempre voy a estar para ti, sin importar nada 💗
 
 <!-- SORPRESA -->
 <div id="thanks" class="screen">
-<h2>Para ti 💗</h2>
+<h2>Para ti <span class="heart">💗</span></h2>
 
 <p>
 Hay algo más que quiero decirte… 🥺
@@ -296,7 +309,7 @@ Hay algo más que quiero decirte… 🥺
 
 <div id="finalMessage" style="display:none; margin-top:30px;">
 <p>
-💗<br><br>
+<span class="heart">💗</span><br><br>
 
 Gracias por existir y por todos los momentos que me regalaste.<br><br>
 
