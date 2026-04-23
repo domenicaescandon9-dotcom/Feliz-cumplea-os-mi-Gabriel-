@@ -114,26 +114,29 @@ transform:scale(1.08);
 .menu{
 display:flex;
 flex-wrap:wrap;
-gap:15px;
+gap:20px;
 justify-content:center;
 margin-top:30px;
+max-width:600px;
+margin-left:auto;
+margin-right:auto;
 }
-
 .card{
-background:rgba(255,255,255,0.6);
-padding:20px;
-border-radius:15px;
-width:220px;
+background:#ffffff; /* 👈 sólido */
+padding:18px;
+border-radius:18px;
+width:240px;
 cursor:pointer;
 transition:0.3s;
-backdrop-filter:blur(10px);
+box-shadow:0 8px 20px rgba(0,0,0,0.08); /* 👈 sombra elegante */
+border:1px solid rgba(0,0,0,0.05);
 }
 
 .card:hover{
-background:#A7C7E7;
-color:#000;
 transform:scale(1.05);
+box-shadow:0 12px 25px rgba(0,0,0,0.12);
 }
+
 
 ul{
 max-width:600px;
