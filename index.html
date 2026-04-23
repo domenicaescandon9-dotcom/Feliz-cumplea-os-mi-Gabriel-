@@ -470,10 +470,8 @@ if(id==='letter') typeLetter();
 // quitar SIEMPRE primero
 document.body.classList.remove('show-frame');
 
-// SOLO mostrar en secciones cortas
-if(id === 'menu' || id === 'songs' || id === 'drawings'){
+if(id !== 'likes' && id !== 'letter' && id !== 'remember'){
 document.body.classList.add('show-frame');
-}
   }
 
 function goMenu(){
