@@ -12,7 +12,7 @@
 body{
 margin:0;
 font-family:'Poppins',sans-serif;
-background: linear-gradient(135deg, #a1c4fd, #eaf6ff);
+background:#fff5f7;
 color:#333;
 text-align:center;
 overflow-x:hidden
@@ -22,10 +22,10 @@ overflow-x:hidden
 .screen{
 display:none;
 width:100%;
-min-height:100vh;
-padding:40px;
+height:100vh; /* 👈 cambio clave */
+padding:20px; /* menos espacio */
 box-sizing:border-box;
-overflow-y:auto;
+overflow:hidden; /* 👈 quita scroll */
 }
 
 /* ACTIVA */
@@ -300,14 +300,27 @@ Te quiero demasiado.<br><br>
 
 <!-- CANCIONES -->
 <div id="songs" class="screen">
-<h2>Canciones que te dedico 🎵</h2>
+<h2>🎧 Algunas canciones bonitas</h2>
 
-<div class="song">Until I Found You</div>
-<div class="song">Perfect</div>
-<div class="song">Earned It</div>
-<div class="song">All I Need</div>
-<div class="song">I Wanna Be Yours</div>
-<div class="song">Virgen</div>
+<p>Quise dejarte algunas canciones tranquilas que me gustan mucho 💙</p>
+
+<div class="song">🌻 Sunflower  
+<br><a href="https://youtu.be/ApXoWvfEYVU" target="_blank">Escuchar</a></div>
+
+<div class="song">✨ Golden  
+<br><a href="https://youtu.be/P3cffdsEXXw" target="_blank">Escuchar</a></div>
+
+<div class="song">🤝 Count on Me  
+<br><a href="https://youtu.be/yJYXItns2ik" target="_blank">Escuchar</a></div>
+
+<div class="song">🌙 Best Part  
+<br><a href="https://youtu.be/vBy7FaapGRo" target="_blank">Escuchar</a></div>
+
+<div class="song">📍 Location  
+<br><a href="https://youtu.be/by3yRdlQvzs" target="_blank">Escuchar</a></div>
+
+<div class="song">⚡ Electric  
+<br><a href="https://youtu.be/RYr96YYEaZY" target="_blank">Escuchar</a></div>
 
 <button class="back" onclick="goMenu()">Volver al menú</button>
 </div>
