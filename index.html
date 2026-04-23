@@ -27,12 +27,13 @@ top:0;
 left:0;
 width:100vw;
 height:100vh;
-background-image:url('marco.jpg'); /* o png */
-background-size:100% 100%; /* 👈 clave */
+background-image:url('marco.png'); /* o jpg */
+background-size:100% 100%;
 background-repeat:no-repeat;
 background-position:center;
 pointer-events:none;
-z-index:-1; /* 👈 detrás de TODO */
+z-index:-1;
+display:none; /* 👈 IMPORTANTE */
 }
 
 body::after{
@@ -452,19 +453,29 @@ document.getElementById('start').style.display = 'none';
 
 document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
 document.getElementById('menu').classList.add('active');
-                          }
+document.body.classList.add('show-frame'); // 👈 marco en menú
+}
 
 function openSection(id){
 document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
 document.getElementById(id).classList.add('active');
+
 if(id==='letter') typeLetter();
+
+// ❌ quitar marco en secciones largas
+document.body.classList.remove('show-frame');
+
+// 💙 solo mostrar en secciones cortas (si quieres)
+if(id === 'likes' || id === 'songs'){
+document.body.classList.add('show-frame');
 }
 
 function goMenu(){
 document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
 document.getElementById('menu').classList.add('active');
-}
 
+document.body.classList.add('show-frame'); // 👈 vuelve el marco
+}
 function createConfetti(){
 for(let i=0;i<80;i++){
 let conf=document.createElement('div');
