@@ -27,13 +27,17 @@ top:0;
 left:0;
 width:100vw;
 height:100vh;
-background-image:url('marco.jpg');
+background-image:url('marco.png'); /* o jpg */
 background-size:100% 100%;
 background-repeat:no-repeat;
 background-position:center;
 pointer-events:none;
 z-index:0;
-display:block; /* 👈 CAMBIO CLAVE */
+display:none; /* 👈 clave */
+}
+
+body.show-frame::before{
+display:block;
 }
 
 body::after{
@@ -448,15 +452,14 @@ Siempre vas a ser alguien muy importante para mí 💗
 function startPage(){
 createConfetti();
 
-// quitar active SOLO del inicio
-document.getElementById('start').classList.remove('active');
+document.getElementById('start').style.display = 'none';
 
-// mostrar menú
+document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
 document.getElementById('menu').classList.add('active');
 
-// activar marco
 document.body.classList.add('show-frame');
-  }
+}
+
 function openSection(id){
 document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
 document.getElementById(id).classList.add('active');
