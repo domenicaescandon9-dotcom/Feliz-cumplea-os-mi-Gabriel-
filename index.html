@@ -459,20 +459,19 @@ document.getElementById('menu').classList.add('active');
 
 document.body.classList.add('show-frame');
 }
+
 function openSection(id){
 document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
 document.getElementById(id).classList.add('active');
 
 if(id==='letter') typeLetter();
 
-/* 🔥 CONTROL DEL MARCO */
-
-// quitar siempre
+/* controlar marco */
 document.body.classList.remove('show-frame');
 
-// SOLO mostrar en estas secciones
 if(id === 'menu' || id === 'songs' || id === 'drawings'){
 document.body.classList.add('show-frame');
+}
   }
 
 function goMenu(){
