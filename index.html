@@ -448,14 +448,15 @@ Siempre vas a ser alguien muy importante para mí 💗
 function startPage(){
 createConfetti();
 
-document.getElementById('start').style.display = 'none';
+// ocultar inicio
+document.getElementById('start').classList.remove('active');
 
-document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+// mostrar menú
 document.getElementById('menu').classList.add('active');
 
+// activar marco
 document.body.classList.add('show-frame');
-}
-
+  }
 function openSection(id){
 document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
 document.getElementById(id).classList.add('active');
