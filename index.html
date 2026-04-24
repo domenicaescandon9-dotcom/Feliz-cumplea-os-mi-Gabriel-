@@ -15,25 +15,19 @@ font-family:'Poppins',sans-serif;
 background: linear-gradient(135deg, #f8fbff, #eef3f9);
 color:#333;
 text-align:center;
-position:relative;
-z-index:1;
 }
 
 /* MARCO */
 body::before{
 content:"";
 position:fixed;
-top:0;
-left:0;
-width:100vw;
-height:100vh;
-background-image:url('marco.png'); /* o jpg */
-background-size:100% 100%;
-background-repeat:no-repeat;
-background-position:center;
+top:10px;
+left:10px;
+right:10px;
+bottom:10px;
+border:2px solid rgba(167,199,231,0.5);
+border-radius:20px;
 pointer-events:none;
-z-index:-1;
-display:none; /* 👈 IMPORTANTE */
 }
 
 body::after{
@@ -52,10 +46,10 @@ pointer-events:none;
 .screen{
 display:none;
 width:100%;
-min-height:100vh;
-padding:40px;
+height:100vh; /* 👈 cambio clave */
+padding:20px; /* menos espacio */
 box-sizing:border-box;
-overflow-y:auto; /* 👈 esto deja scrollear las otras */
+overflow:hidden; /* 👈 quita scroll */
 }
 
 /* ACTIVA */
@@ -71,10 +65,9 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 height:100vh;
-gap:15px;
+gap:15px; /* 👈 esto junta todo */
 padding:20px;
 text-align:center;
-overflow:hidden;
 }
 
 @keyframes fade{
@@ -115,29 +108,26 @@ transform:scale(1.08);
 .menu{
 display:flex;
 flex-wrap:wrap;
-gap:20px;
+gap:15px;
 justify-content:center;
 margin-top:30px;
-max-width:600px;
-margin-left:auto;
-margin-right:auto;
 }
+
 .card{
-background:#ffffff; /* 👈 sólido */
-padding:18px;
-border-radius:18px;
-width:240px;
+background:rgba(255,255,255,0.6);
+padding:20px;
+border-radius:15px;
+width:220px;
 cursor:pointer;
 transition:0.3s;
-box-shadow:0 8px 20px rgba(0,0,0,0.08); /* 👈 sombra elegante */
-border:1px solid rgba(0,0,0,0.05);
+backdrop-filter:blur(10px);
 }
 
 .card:hover{
+background:#A7C7E7;
+color:#000;
 transform:scale(1.05);
-box-shadow:0 12px 25px rgba(0,0,0,0.12);
 }
-
 
 ul{
 max-width:600px;
@@ -453,29 +443,19 @@ document.getElementById('start').style.display = 'none';
 
 document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
 document.getElementById('menu').classList.add('active');
-document.body.classList.add('show-frame'); // 👈 marco en menú
-}
+                          }
 
 function openSection(id){
 document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
 document.getElementById(id).classList.add('active');
-
 if(id==='letter') typeLetter();
-
-// ❌ quitar marco en secciones largas
-document.body.classList.remove('show-frame');
-
-// 💙 solo mostrar en secciones cortas (si quieres)
-if(id === 'likes' || id === 'songs'){
-document.body.classList.add('show-frame');
 }
 
 function goMenu(){
 document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
 document.getElementById('menu').classList.add('active');
-
-document.body.classList.add('show-frame'); // 👈 vuelve el marco
 }
+
 function createConfetti(){
 for(let i=0;i<80;i++){
 let conf=document.createElement('div');
@@ -539,4 +519,4 @@ document.getElementById('finalMessage').style.display='block';
 </script>
 
 </body>
-  </html>
+</html>
