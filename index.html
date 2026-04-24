@@ -32,12 +32,8 @@ background-size:100% 100%;
 background-repeat:no-repeat;
 background-position:center;
 pointer-events:none;
-z-index:0;
-display:none; /* 👈 clave */
-}
-
-body.show-frame::before{
-display:block;
+z-index:-1;
+display:none; /* 👈 IMPORTANTE */
 }
 
 body::after{
@@ -452,12 +448,12 @@ Siempre vas a ser alguien muy importante para mí 💗
 function startPage(){
 createConfetti();
 
+// 🔥 ESTA ES LA LÍNEA QUE FALTA
 document.getElementById('start').style.display = 'none';
 
 document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
 document.getElementById('menu').classList.add('active');
-
-document.body.classList.add('show-frame');
+document.body.classList.add('show-frame'); // 👈 marco en menú
 }
 
 function openSection(id){
@@ -466,19 +462,19 @@ document.getElementById(id).classList.add('active');
 
 if(id==='letter') typeLetter();
 
-/* controlar marco */
+// ❌ quitar marco en secciones largas
 document.body.classList.remove('show-frame');
 
-if(id === 'menu' || id === 'songs' || id === 'drawings'){
+// 💙 solo mostrar en secciones cortas (si quieres)
+if(id === 'likes' || id === 'songs'){
 document.body.classList.add('show-frame');
 }
-  }
 
 function goMenu(){
 document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
 document.getElementById('menu').classList.add('active');
 
-document.body.classList.add('show-frame');
+document.body.classList.add('show-frame'); // 👈 vuelve el marco
 }
 function createConfetti(){
 for(let i=0;i<80;i++){
@@ -543,4 +539,4 @@ document.getElementById('finalMessage').style.display='block';
 </script>
 
 </body>
-</html>
+  </html>
