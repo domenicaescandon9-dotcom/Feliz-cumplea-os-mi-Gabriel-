@@ -32,7 +32,7 @@ background-size:100% 100%;
 background-repeat:no-repeat;
 background-position:center;
 pointer-events:none;
-z-index:-1;
+z-index:0;
 display:none; /* 👈 clave */
 }
 
@@ -467,10 +467,11 @@ if(id==='letter') typeLetter();
 
 /* 🔥 CONTROL DEL MARCO */
 
-// quitar SIEMPRE primero
+// quitar siempre
 document.body.classList.remove('show-frame');
 
-if(id !== 'likes' && id !== 'letter' && id !== 'remember'){
+// SOLO mostrar en estas secciones
+if(id === 'menu' || id === 'songs' || id === 'drawings'){
 document.body.classList.add('show-frame');
   }
 
